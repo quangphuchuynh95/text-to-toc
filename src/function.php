@@ -42,7 +42,7 @@ if (!function_exists('textToToc')) {
     function textToToc($text, $type = 'html') {
         $index = 0;
         $replaced = preg_replace_callback(
-            '/\<(h[1-6])([^\>]*)\>(.*)\<\/\s*\1\s*\>/i',
+            '/\<(h[1-6])([^\>]*)\>(.*?)\<\/\s*\1\s*\>/is',
             function ($match) use (&$index) {
                 $index++;
                 $origin = $match[0];
@@ -61,7 +61,7 @@ if (!function_exists('textToToc')) {
             'level' => 0,
             'children' => [],
         ];
-        if (preg_match_all('/\<h([1-6])([^\>]*)id\=([\'"])([^\s\3]+)\3([^\>]*)\>(.*)\<\/\s*h\1\s*\>/i', $replaced, $matches)) {
+        if (preg_match_all('/\<h([1-6])([^\>]*)id\=([\'"])([^\s\3]+)\3([^\>]*)\>(.*?)\<\/\s*h\1\s*\>/is', $replaced, $matches)) {
             $levels = $matches[1];
             $ids = $matches[4];
             $texts = $matches[6];
@@ -76,7 +76,13 @@ if (!function_exists('textToToc')) {
                 $item = [
                     'id' => $ids[$index],
                     'level' => $level,
-                    'text' => $texts[$index],
+                    'text' => trim(preg_replace([
+                        '/\<(\/)?[^\<\>]+\>/',
+                        '/(\r\n|\n|\r)/',
+                    ], [
+                        '',
+                        ' ',
+                    ], $texts[$index])),
                     'children' => []
                 ];
                 $parent['children'][] = &$item;

@@ -1,0 +1,15 @@
+{
+    "name": "quangphuc/text-to-toc",
+    "autoload": {
+      "files": [
+        "src/function.php"
+      ]
+    },
+    "authors": [
+        {
+            "name": "Huỳnh Quang Phúc",
+            "email": "quangphuc.huynh95@gmail.com"
+        }
+    ],
+    "require": {}
+}

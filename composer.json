@@ -1,15 +1,17 @@
 {
-    "name": "quangphuc/text-to-toc",
-    "autoload": {
-      "files": [
-        "src/function.php"
-      ]
-    },
-    "authors": [
-        {
-            "name": "Huỳnh Quang Phúc",
-            "email": "quangphuc.huynh95@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "quangphuc/text-to-toc",
+  "version": "1.0.0",
+  "license": "MIT",
+  "autoload": {
+    "files": [
+      "src/function.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Huỳnh Quang Phúc",
+      "email": "quangphuc.huynh95@gmail.com"
+    }
+  ],
+  "require": {}
 }

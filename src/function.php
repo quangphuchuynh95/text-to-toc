@@ -34,6 +34,27 @@ if (!function_exists('textToTocSlugify')) {
     }
 }
 
+
+if (!function_exists('generateTocHtml')) {
+    /**
+     * @param string $text text to index
+     * @param string $type html or markdown
+     */
+    function generateTocHtml($toc) {
+        $html = '<ul>';
+        if ($toc['children']) {
+            foreach ($toc['children'] as $child) {
+                $html .= "<li><a href=\"{$child['id']}\">{$child['text']}</a>";
+                $html .= generateTocHtml($child);
+                $html .= '</li>';
+            }
+        }
+        $html .= '</ul>';
+        return $html;
+    }
+}
+
+
 if (!function_exists('textToToc')) {
     /**
      * @param string $text text to index

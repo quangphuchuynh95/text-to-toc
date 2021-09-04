@@ -85,14 +85,12 @@ if (!function_exists('textToToc')) {
                 $parent = &$item;
                 unset($item);
             }
-//            var_dump($parents);
-            var_dump($toc);
         }
 
 
         return [
-//            'html' => $replaced,
-//            'toc' => $toc,
+            'html' => $replaced,
+            'toc' => $toc,
         ];
     }
 }

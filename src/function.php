@@ -44,7 +44,7 @@ if (!function_exists('generateTocHtml')) {
         $html = '<ul>';
         if ($toc['children']) {
             foreach ($toc['children'] as $child) {
-                $html .= "<li><a href=\"{$child['id']}\">{$child['text']}</a>";
+                $html .= "<li><a href=\"#{$child['id']}\">{$child['text']}</a>";
                 $html .= generateTocHtml($child);
                 $html .= '</li>';
             }

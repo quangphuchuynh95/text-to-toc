@@ -1,6 +1,6 @@
 {
   "name": "quangphuc/text-to-toc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "minimum-stability": "dev",
   "autoload": {
